@@ -16,15 +16,17 @@ func _ready() -> void:
 func _on_button_pressed() -> void:
 	var file = FileAccess.open("posts-template.html", FileAccess.READ)
 	var content = file.get_as_text()
+	var time = Time.get_date_dict_from_system()
+	var datefolder = "%04d-%02d-%02d" % [time.year, time.month, time.day]
 	
-	
+
 	content = content.replace("{{title}}",posttitle.text)
 	content = content.replace("{{description}}",postdesc.text)
 	content = content.replace("{{article}}",posttext.text)
+	content = content.replace("{{date}}",datefolder)
 	
-	var time = Time.get_date_dict_from_system()
 	
-	var datefolder = "%04d-%02d-%02d" % [time.year, time.month, time.day]
+	
 	var postFolderToSave = "posts/%s" % [datefolder]
 	var postFileName = posttitle.text.replace(" ","-")
 	DirAccess.make_dir_absolute(postFolderToSave)
