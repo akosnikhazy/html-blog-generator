@@ -14,10 +14,11 @@ func _ready() -> void:
 
 
 func _on_button_pressed() -> void:
+	
 	var file = FileAccess.open("posts-template.html", FileAccess.READ)
 	var content = file.get_as_text()
 	var time = Time.get_date_dict_from_system()
-	var datefolder = "%04d-%02d-%02d" % [time.year, time.month, time.day]
+	var datefolder = Time.get_date_string_from_system()
 	
 
 	content = content.replace("{{title}}",posttitle.text)
