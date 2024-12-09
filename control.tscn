@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://dms1r8ydohyor"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_e07l8"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e07l8")
+
+[node name="title" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 20.0
+offset_right = 508.0
+offset_bottom = 60.0
+placeholder_text = "Title of you post, this will go in the <title> tag and the <h1> too"
+
+[node name="description" type="TextEdit" parent="."]
+offset_left = 14.0
+offset_top = 84.0
+offset_right = 508.0
+offset_bottom = 124.0
+placeholder_text = "The meta description for all the social media and SEO needs"
+
+[node name="text" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 149.0
+offset_right = 1122.0
+offset_bottom = 527.0
+placeholder_text = "Your blog body. Use <p> tags for paragraphs. The first <p> tag will be seen in the index and in html description"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 994.0
+offset_top = 568.0
+offset_right = 1116.0
+offset_bottom = 612.0
+text = "Submit"
+
+[connection signal="text_changed" from="title" to="." method="_on_title_text_changed"]
+[connection signal="text_changed" from="description" to="." method="_on_description_text_changed"]
+[connection signal="text_changed" from="text" to="." method="_on_text_text_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
