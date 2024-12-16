@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://dms1r8ydohyor"]
+
+[ext_resource type="Script" path="res://PostEditor.gd" id="1_dr35r"]
+
+[node name="PostEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dr35r")
+
+[node name="Title" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 20.0
+offset_right = 508.0
+offset_bottom = 60.0
+placeholder_text = "Title of you post, this will go in the <title> tag and the <h1> too"
+
+[node name="Description" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 84.0
+offset_right = 508.0
+offset_bottom = 124.0
+placeholder_text = "The meta description for all the social media and SEO needs"
+
+[node name="Text" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 149.0
+offset_right = 1122.0
+offset_bottom = 527.0
+placeholder_text = "Your blog body. Use <p> tags for paragraphs. The first <p> tag will be seen in the index and in html description"
+wrap_mode = 1
+
+[node name="SubmitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 994.0
+offset_top = 568.0
+offset_right = 1116.0
+offset_bottom = 612.0
+text = "Submit"
+
+[node name="Cancel" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1065.0
+offset_top = 19.0
+offset_right = 1125.0
+offset_bottom = 56.0
+text = "Cancel"
+
+[connection signal="text_changed" from="Title" to="." method="_on_title_text_changed"]
+[connection signal="text_changed" from="Description" to="." method="_on_description_text_changed"]
+[connection signal="text_changed" from="Text" to="." method="_on_text_text_changed"]
+[connection signal="pressed" from="SubmitButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Cancel" to="." method="_on_cancel_pressed"]

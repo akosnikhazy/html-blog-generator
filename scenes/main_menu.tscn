@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuvdklsvgkrgd"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_55ffy"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_55ffy")
+
+[node name="NewPost" type="Button" parent="."]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 36.0
+offset_right = 358.0
+offset_bottom = 100.0
+text = "New Post"
+
+[node name="GenerateIndex" type="Button" parent="."]
+layout_mode = 0
+offset_left = 419.0
+offset_top = 34.0
+offset_right = 736.0
+offset_bottom = 98.0
+text = "Generate Static Files"
+
+[connection signal="button_up" from="NewPost" to="." method="_on_new_post_button_up"]
+[connection signal="button_up" from="GenerateIndex" to="." method="_on_generate_index_button_up"]

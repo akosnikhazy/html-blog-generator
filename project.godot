@@ -11,6 +11,15 @@ config_version=5
 [application]
 
 config/name="html-blog-wirter"
-run/main_scene="res://control.tscn"
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://blog-icon.png"
+
+[file_customization]
+
+folder_colors={
+"res://css/": "blue",
+"res://js/": "blue",
+"res://media/": "blue",
+"res://posts/": "blue"
+}
